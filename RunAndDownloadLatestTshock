@@ -3,6 +3,6 @@ if [[ ! -f ./Tshock.zip && "$*" == *-UpdateTshock* ]]; then echo "Downloading Ts
 elif [[ -f ./Tshock.zip && "$*" == *-UpdateTshock* ]]; then echo "Unzipping already existing Zip file..." ; unzip -u Tshock.zip && (echo "Unzipped Succesfully! You can start the server now!" ; chmod a+x TerrariaServer.exe ; rm Tshock.zip) || (echo "Unzip Unsuccessful!" ; rm Tshock.zip)
 fi
 
-if [[ "$*" != *-UpdateTshock* ]]; then cd "`dirname "$0"`" ; chmod a+x TerrariaServer.exe ; (clear ; mono ./TerrariaServer.exe $@)
-else echo "Server Won't Start Cause Of Update Being Toggled! Toggle Off For The Server To Work!" ; exit 0
-fi
+cd "`dirname "$0"`" ; chmod a+x TerrariaServer.exe ; (clear ; echo "Error: Please take out the update argument!" ; mono ./TerrariaServer.exe $@)
+
+exit 0
